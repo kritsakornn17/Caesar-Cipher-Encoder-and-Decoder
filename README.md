@@ -1,2 +1,3 @@
+# Physical Computing Project 2025 - IT KMITL
 # Caesar-Cipher-007
 เป็นการสร้างอุปกรณ์ต้นแบบที่ใช้ Arduino สำหรับ เข้ารหัส (Encode) และ ถอดรหัส (Decode) ข้อความ โดยอ้างอิงจากหลักการของ Caesar Cipher ซึ่งเป็นวิธีการเข้ารหัสแบบคลาสสิกที่ Julius Caesar เคยใช้ในการส่งข้อความลับให้ทหารของเขา
