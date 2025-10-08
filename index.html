@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ชื่อโปรเจกต์] | Dark Mode Showcase</title>
+    <title>Caesar Cipher | ENCODER AND DECODER</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,11 @@
             color: var(--text-primary);
             margin: 0;
             padding: 20px;
+            /* Added background image from previous request */
+            background-image: url('isad-background.b0a40901.jpg'); 
+            background-size: cover; 
+            background-attachment: fixed; 
+            background-position: center center;
         }
 
         .container {
@@ -39,7 +44,7 @@
             padding: 40px;
             margin-bottom: 30px;
             border-radius: 12px;
-            background: rgba(30, 30, 30, 0.6); /* Semi-transparent background */
+            background: rgba(30, 30, 30, 0.7); /* Slightly more opaque for readability */
             border: 1px solid var(--border-color);
             backdrop-filter: blur(10px); /* The Glassmorphism effect */
             -webkit-backdrop-filter: blur(10px);
@@ -76,7 +81,7 @@
 
         /* --- Section --- */
         .section {
-            background: var(--surface-color);
+            background: rgba(30, 30, 30, 0.8); /* Adjusted for background */
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 25px;
@@ -105,12 +110,37 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
         }
+        .component-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 20px auto;
+            border-radius: 12px;
+            background-color: #f0f0f0; /* Added for transparent bg images */
+            border: 1px solid var(--border-color);
+        }
+        .page-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 20px auto;
+            border-radius: 12px;
+            background-color: #f0f0f0; /* Added for transparent bg images */
+            border: 1px solid var(--border-color);
+        }
 
         /* --- Details Grid Layout --- */
         .details-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
+            align-items: start;
+        }
+
+        .grid-item {
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -122,6 +152,7 @@
         .details-grid ul {
             list-style: none;
             padding: 0;
+            text-align: left; /* Align list items left */
         }
         
         .details-grid ul li {
@@ -131,6 +162,7 @@
         .details-grid ul li i {
             color: var(--primary-accent);
             margin-right: 10px;
+            width: 20px; /* Ensure consistent icon alignment */
         }
 
         /* --- Code & Button --- */
@@ -169,8 +201,10 @@
         footer {
             text-align: center;
             padding: 20px;
-            color: #666;
+            color: #ccc; /* Lighter for better visibility on dark bg */
             font-family: 'JetBrains Mono', monospace;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -211,21 +245,50 @@
                 
                 <img src="images/image.png" alt="Project Architecture Diagram" class="project-image">
 
-                <div class="details-grid">
+                <div class="details-grid" style="margin-top: 40px; margin-bottom: 20px;">
                     <div class="grid-item">
-                        <h3>คุณสมบัติหลัก</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Real-time data processing</li>
-                            <li><i class="fas fa-check"></i> REST API for integration</li>
-                            <li><i class="fas fa-check"></i> Interactive dashboard</li>
-                        </ul>
+                        <img src="images/SBC-NodeMCU-ESP32-01.png" alt="ESP32 Development Board" class="component-image">
+                        <p><b>ESP32</b></p>
                     </div>
                     <div class="grid-item">
-                        <h3>เทคโนโลยีที่ใช้</h3>
+                        <img src="images/sx1278_lora_module_2_grobo-removebg-preview.png" alt="LoRa SX1278 Module" class="component-image">
+                        <p><b>LoRa SX1278</b></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/encrypt.png" alt="sender" class="page-image">
+                        <p><b>SENDER PAGE</b></p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="images/decrypt.png" alt="RECEIVER" class="page-image">
+                        <p><b>RECEIVER PAGE</b></p>
+                    </div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="grid-item" style="text-align: left;">
+                        <h3>การทำงานของฝั่งส่ง</h3>
                         <ul>
-                            <li><i class="fas fa-microchip"></i> Backend: Python, Flask</li>
-                            <li><i class="fas fa-database"></i> Database: PostgreSQL</li>
-                            <li><i class="fas fa-cogs"></i> Libraries: Pandas, Scikit-learn</li>
+                            <li><i class="fas fa-wifi"></i> <b>เชื่อมต่อ WiFi:</b> ESP32 จะเชื่อมต่อกับเครือข่าย WiFi และแสดง IP Address ผ่าน Serial Monitor</li>
+                            <li><i class="fas fa-server"></i> <b>สร้างเว็บเซิร์ฟเวอร์:</b> ESP32 สร้างเว็บเซิร์ฟเวอร์ที่เข้าถึงได้ผ่าน IP Address นั้น</li>
+                            <li><i class="fas fa-keyboard"></i> <b>หน้าเว็บสำหรับผู้ใช้:</b> ผู้ใช้เข้าหน้าเว็บเพื่อป้อนข้อความ (Plaintext) และเลือกค่าคีย์ (Key) ผ่านแถบเลื่อน</li>
+                            <li><i class="fas fa-sync-alt"></i> <b>แสดงผลเรียลไทม์:</b> หน้าเว็บจะแสดงผลลัพธ์การเข้ารหัส (Ciphertext) ทันที</li>
+                            <li><i class="fas fa-paper-plane"></i> <b>ส่งข้อมูล:</b> เมื่อกดปุ่ม "SENT" ข้อความที่เข้ารหัสแล้วจะถูกส่งไปยัง ESP32</li>
+                            <li><i class="fas fa-broadcast-tower"></i> <b>ส่งสัญญาณ LoRa:</b> ESP32 รับข้อความและส่งออกเป็นสัญญาณวิทยุผ่านโมดูล LoRa</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item" style="text-align: left;">
+                        <h3>การทำงานของฝั่งรับ</h3>
+                        <ul>
+                            <li><i class="fas fa-wifi"></i> <b>เชื่อมต่อ WiFi:</b> เช่นเดียวกับฝั่งส่ง, เมื่อเปิดเครื่อง ESP32 ฝั่งรับจะเชื่อมต่อกับเครือข่าย WiFi ที่กำหนดไว้ และแสดง IP Address ของตัวเองผ่าน Serial Monitor</li>
+                            <li><i class="fas fa-server"></i> <b>สร้างเว็บเซิร์ฟเวอร์:</b> ESP32 จะสร้างเว็บเซิร์ฟเวอร์ที่ผู้ใช้สามารถเข้าถึงผ่าน IP Address นั้น</li>
+                            <li><i class="fas fa-satellite-dish"></i> <b>รอรับสัญญาณ LoRa:</b> อุปกรณ์จะอยู่ในโหมดพร้อมรับสัญญาณ LoRa ตลอดเวลา</li>
+                            <li><i class="fas fa-inbox"></i> <b>จัดเก็บข้อความ:</b> เมื่อได้รับข้อความที่เข้ารหัสผ่าน LoRa , มันจะถูกจัดเก็บไว้ในรายการ (vector) ภายในหน่วยความจำของ ESP32 อุปกรณ์จะเก็บข้อความได้สูงสุด 10 ข้อความ หากเกิน, ข้อความที่เก่าที่สุดจะถูกลบออกไป</li>
+                            <li><i class="fas fa-desktop"></i> <b>หน้าเว็บสำหรับถอดรหัส:</b> เมื่อผู้ใช้เข้าไปยัง IP ของ ESP32 จะพบหน้าเว็บที่แบ่งเป็นสองส่วนหลัก:
+                                <ul style="padding-left: 40px; margin-top: 10px; list-style-type: disc;">
+                                    <li><b>ส่วนถอดรหัส (ซ้าย):</b> เป็นเครื่องมือสำหรับถอดรหัส ผู้ใช้สามารถวางข้อความที่เข้ารหัส (Ciphertext) , เลื่อนแถบเพื่อเลือกคีย์ (Key), และผลลัพธ์การถอดรหัส (Plaintext) จะปรากฏขึ้นทันที</li>
+                                    <li><b>ส่วนกล่องข้อความ (ขวา):</b> แสดงรายการข้อความลับ (" SECRET MESSAGE ") ที่ได้รับผ่าน LoRa แต่ละข้อความจะมีปุ่ม "READ" เพื่อนำข้อความนั้นไปใส่ในเครื่องมือถอดรหัสฝั่งซ้าย และปุ่ม "DELETE" เพื่อลบข้อความนั้นออกจากรายการ</li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
