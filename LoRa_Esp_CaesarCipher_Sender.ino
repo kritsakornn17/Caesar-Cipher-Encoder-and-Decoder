@@ -9,8 +9,8 @@
 #include <SPI.h>
 
 //Wi-Fi
-const char* ssid     = "111016_KMITL_2.4G"; //ชื่อSSID ของWiFi    
-const char* password = "77264776"; //passwordของWiFi ใส่ให้ถูกต้องด้วย
+const char* ssid     = "-------"; //ชื่อSSID ของWiFi    
+const char* password = "-------"; //passwordของWiFi ใส่ให้ถูกต้องด้วย
 
 //LoRa pins (ESP32)
 #define LORA_SCK      18 //พวก SCK , MISO , MOSI ต้องดูดีๆว่า Default SCK, MISO, MOSI อยู่Pinไหน ของMicro controller หรือถ้าไม่รู้ก็ใช้ SPI.h ในการกำหนดPinต่างๆ
